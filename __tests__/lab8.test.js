@@ -36,9 +36,7 @@ describe('Basic user flow for SPA ', () => {
 
   it('Test4: On first Entry page - checking page header title', async () => {
     // implement test4: Clicking on the first journal entry should update the header text to “Entry 1” 
-    const head = await page.$$eval("body >  header > h1", (head1) => {
-    return head1.textContent;
-    });
+    const head = await page.$$eval("body >  header > h1", el => el.textContent);
     expect(head).toEqual("Entry 1");
   });
 
