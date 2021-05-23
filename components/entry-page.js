@@ -9,9 +9,7 @@ class EntryPage extends HTMLElement {
             .post {
                 max-width: 90vw;
                 padding: 20px;
-
                 align-self: center;
-
                 display: grid;
                 grid-template-areas: 
                   "title img img"
@@ -21,7 +19,6 @@ class EntryPage extends HTMLElement {
                 gap: 10px;
                 grid-template-columns: repeat(2, 1fr);
             }
-
             .entry-image {
                 grid-area: img
                 height: 100%;
@@ -31,7 +28,6 @@ class EntryPage extends HTMLElement {
                 max-width: 500px;
                 border-radius: 6px;
             }
-
             .post section {
               display: flex;
               padding: 30px;
@@ -40,35 +36,27 @@ class EntryPage extends HTMLElement {
               background-color: white;
               list-style-type: none;
             }
-
             .entry-title-section {             
                 grid-area: title;
             }
-
             .entry-content-section {
                 grid-area: content;
             }
-
             .entry-audio-section {
               grid-area: audio;
           }
-
-
         </style>
         <section class="post">
             <section class="entry-title-section">
               <h3>post title: </h3> 
               <h2 class="entry-title"></h2>
-
               <h4>this post was made on:</h4>
               <p class="entry-date"></p>
             </section> 
-
             <section class="entry-content-section">
               <h3>post content</h3>
               <p class="entry-content"></p>
             </section>   
-
             <section class="entry-audio-section">
               <h4>audio</h4>
             </section> 

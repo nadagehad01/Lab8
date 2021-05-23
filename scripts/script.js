@@ -1,5 +1,3 @@
-// script.js
-
 import { router } from './router.js';
 
 const headerText = document.querySelector('header > h1');

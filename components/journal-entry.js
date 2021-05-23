@@ -17,7 +17,6 @@ class JournalEntry extends HTMLElement {
                 width: 80%;
                 transition-duration: .4s;
             }
-
             .entry:hover {
                 filter: brightness(80%);
             }
@@ -26,31 +25,26 @@ class JournalEntry extends HTMLElement {
                 filter: brightness(60%);
                 transition-duration: 0s;
             }
-
             .entry-audio {
                 margin: 10px 0;
                 width: 95%;
             }
-
             .entry-content {
                 font-size: 20px;
                 margin: 10px 0;
                 text-indent: 30px;
             }
-
             .entry-date {
                 color: rgb(163, 163, 163);
                 font-size: 20px;
                 margin-top: 3px;
                 margin-bottom: 20px;
             }
-
             .entry-image {
                 height: 100%;
                 max-height: 350px;
                 max-width: 550px;
             }
-
             .entry-title {
                 margin-bottom: 5px;
                 margin-top: 5px;
