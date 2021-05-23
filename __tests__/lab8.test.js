@@ -63,7 +63,7 @@ describe('Basic user flow for SPA ', () => {
           }
       }
       const entry_1 = await.page.$('entry-page');
-      const entry_1_json = (await entry.getProperty('entry')).jsonValue();
+      const entry_1_json = await (await entry.getProperty('entry')).jsonValue();
       expect(entry_1_json.title).toEqual(j1data.title);
       expect(entry_1_json.date).toEqual(j1data.date);
       expect(entry_1_json.content).toEqual(j1data.content);
@@ -138,7 +138,7 @@ describe('Basic user flow for SPA ', () => {
           }
       }
       const entry_2 = await.page.$('entry-page');
-      const entry_2_json = (await entry.getProperty('entry')).jsonValue();
+      const entry_2_json = await (await entry.getProperty('entry')).jsonValue();
       expect(entry_2_json.title).toEqual(j2data.title);
       expect(entry_2_json.date).toEqual(j2data.date);
       expect(entry_2_json.content).toEqual(j2data.content);
