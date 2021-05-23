@@ -19,7 +19,9 @@ Yes, we can use a unit test to check for max message length since it is a single
 If Headless is set to true, our puppeteer tests will run without a broswer UI.
 
 5. What would your beforeAll callback look like if you wanted to start from the settings page before every test case?  
+```JS
   beforeAll(async () => {
     await page.goto('http://127.0.0.1:5500/#settings');
     await page.waitForTimeout(500);
   });
+```
