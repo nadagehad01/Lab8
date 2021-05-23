@@ -69,8 +69,6 @@ describe('Basic user flow for SPA ', () => {
       expect(entry_1_json.content).toEqual(j1data.content);
       expect(entry_1_json.image.src).toEqual(j1data.image.src);
       expect(entry_1_json.image.alt).toEqual(j1data.image.alt);
-
-
   }, 10000);
 
   it('Test6: On first Entry page - checking <body> element classes', async () => {
@@ -95,26 +93,58 @@ describe('Basic user flow for SPA ', () => {
 
   it('Test10: Clicking the back button, new URL should be /#entry1', async() => {
     // implement test10: Clicking on the back button should update the URL to contain ‘/#entry1’
-
+    await page.goBack();
+    expect(page.url()).toMatch(/#entry1/);
   });
 
   // define and implement test11: Clicking the back button once should bring the user back to the home page
-
+  it('Test11: Clicking the back button once should bring the user back to the home page', async() => {
+    await page.goBack();
+    expect(page.url()).toEqual('http://127.0.0.1:5500');
+  });
 
   // define and implement test12: When the user if on the homepage, the header title should be “Journal Entries”
-
+  it('Test12: When the user if on the homepage, the header title should be “Journal Entries”', async() => {
+    const headhome = await page.$eval("body >  header > h1", el => el.textContent);
+    expect(headhome).toEqual("Journal Entries");
+  });
 
   // define and implement test13: On the home page the <body> element should not have any class attribute 
-
+  it('Test13: On the home page the <body> element should not have any class attribute ', async() => {
+    const bodyClass = await page.evaluate(() => {
+      return document.querySelector('body').className;
+    });
+    expect(bodyClass).toMatch("");
+   });
 
   // define and implement test14: Verify the url is correct when clicking on the second entry
-
-
+  it('Test14: Verify the url is correct when clicking on the second entry', async() => {
+    await page.click('journal-entry + journal-entry');
+    expect(page.url()).toMatch(/#entry2/);
+  });
   // define and implement test15: Verify the title is current when clicking on the second entry
-
-
+  it('Test15: Verify the title is current when clicking on the second entry', async() => {
+    const headentry2 = await page.$eval("body >  header > h1", el => el.textContent);
+    expect(headentry2).toEqual("Entry 2");
+  });
   // define and implement test16: Verify the entry page contents is correct when clicking on the second entry
-
+  const j2data = {
+          title: 'Run, Forrest! Run!',
+          date: '4/26/2021',
+          content: "Mama always said life was like a box of chocolates. You never know what you're gonna get.",
+          image: {
+            src: 'https://s.abcnews.com/images/Entertainment/HT_forrest_gump_ml_140219_4x3_992.jpg',
+            alt: 'forrest running'
+          }
+      }
+      const entry_2 = await.page.$('entry-page');
+      const entry_2_json = (await entry.getProperty('entry')).jsonValue();
+      expect(entry_2_json.title).toEqual(j2data.title);
+      expect(entry_2_json.date).toEqual(j2data.date);
+      expect(entry_2_json.content).toEqual(j2data.content);
+      expect(entry_2_json.image.src).toEqual(j2data.image.src);
+      expect(entry_2_json.image.alt).toEqual(j2data.image.alt);
+  }, 10000);
 
   // create your own test 17
 
